@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Photo
+from .forms import PhotoForm
 
 
 # Create your views here.
@@ -23,3 +24,10 @@ def detail(request, pk, hidden=False):
     except:
         photo = get_object_or_404(Photo, pk=pk)
         return photo
+
+def create(request):
+    form = PhotoForm()
+    ctx = {
+        'form': form,
+    }
+    return render(request, 'edit.html', ctx)

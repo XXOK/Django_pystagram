@@ -17,12 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from photos.views import hello, detail
+from photos.views import hello, detail, create
 
 urlpatterns = [
     url(r'^hello/', hello),
     url(r'^photos/?P<pk>([0-9]+)/$', detail, name='detail'),
     url(r'^hidden-photos/(?P<pk>[0-9]+)$', detail, kwargs={'hidden':True}),
+    url(R'^photos/upload/$', create, name='create'),
     url(r'^admin/', admin.site.urls),
 ]
 urlpatterns += static('upload_files', document_root=settings.MEDIA_ROOT)
