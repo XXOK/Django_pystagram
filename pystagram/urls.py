@@ -21,8 +21,8 @@ from photos.views import hello, detail, create
 
 urlpatterns = [
     url(r'^hello/', hello),
-    url(r'^photos/?P<pk>([0-9]+)/$', detail, name='detail'),
-    url(r'^hidden-photos/(?P<pk>[0-9]+)$', detail, kwargs={'hidden':True}),
+    url(r'^photos/(?P<pk>[0-9]+)/$', detail, name='detail'),
+    url(r'^hidden-photos/(?P<pk>[0-9]+)/$', detail, kwargs={'hidden':True}),
     url(R'^photos/upload/$', create, name='create'),
     url(r'^admin/', admin.site.urls),
 ]
